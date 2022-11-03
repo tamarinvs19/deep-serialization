@@ -3,7 +3,7 @@ from itertools import zip_longest
 import pickle
 from typing import Dict, List, Optional, Type
 
-from utils import PythonId, get_type_name, get_type, has_reduce
+from deep_serialization.utils import PythonId, get_type_name, get_type, has_reduce
 
 
 class MemoryObject:

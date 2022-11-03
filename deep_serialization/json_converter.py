@@ -1,5 +1,5 @@
 import json
-from memory_objects import (
+from deep_serialization.memory_objects import (
     MemoryObject,
     ReprMemoryObject,
     ListMemoryObject,

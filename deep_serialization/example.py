@@ -1,7 +1,8 @@
+import datetime
 import json
 
-from memory_objects import PythonSerializer
-from json_converter import MemoryDumpEncoder
+from deep_serialization.memory_objects import PythonSerializer
+from deep_serialization.json_converter import MemoryDumpEncoder
 
 
 class B:
@@ -9,6 +10,7 @@ class B:
         self.b1 = b1
         self.b2 = b2
         self.b3 = b3
+        self.time = datetime.datetime.now()
 
 
 if __name__ == '__main__':

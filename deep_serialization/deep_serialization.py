@@ -1,8 +1,8 @@
 import json
 from typing import Tuple, List
 
-from memory_objects import PythonSerializer
-from json_converter import MemoryDumpEncoder
+from deep_serialization.memory_objects import PythonSerializer
+from deep_serialization.json_converter import MemoryDumpEncoder
 
 
 def serialize_object(obj: object) -> Tuple[str, str]:
