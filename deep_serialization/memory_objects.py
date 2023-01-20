@@ -3,7 +3,7 @@ from itertools import zip_longest
 import pickle
 from typing import Dict, List, Optional, Type
 
-from deep_serialization.utils import PythonId, get_type_name, get_type, has_reduce
+from deep_serialization.utils import PythonId, get_type_name, get_type, has_reduce, check_comparability, get_repr
 
 
 class MemoryObject:
@@ -40,12 +40,12 @@ class ReprMemoryObject(MemoryObject):
 
     def __init__(self, repr_object: object) -> None:
         super().__init__(repr_object)
-        self.value = repr(repr_object)
+        self.value = get_repr(repr_object)
 
     def initialize(self) -> None:
         try:
             deserialized_obj = pickle.loads(pickle.dumps(self.obj))
-            comparable = self.obj == deserialized_obj
+            comparable = check_comparability(self.obj, deserialized_obj)
         except Exception:
             deserialized_obj = self.obj
             comparable = False
@@ -229,7 +229,3 @@ class PythonSerializer:
                 return id_
 
         raise ValueError(f'Can not find provider for object {py_object}.')
-
-
-class MemorySerializer:
-    pass
