@@ -40,13 +40,13 @@ def get_repr(py_object: object) -> str:
     if isinstance(py_object, type):
         return get_type_name(py_object)
     if isinstance(py_object, float):
-        if str(py_object) == 'nan':
+        if repr(py_object) == 'nan':
             return "float('nan')"
-        if str(py_object) == 'inf':
+        if repr(py_object) == 'inf':
             return "float('inf')"
-        if str(py_object) == '-inf':
+        if repr(py_object) == '-inf':
             return "float('-inf')"
-        return get_type_name(py_object)
+        return repr(py_object)
     if isinstance(py_object, complex):
         return f"complex(real={get_repr(py_object.real)}, imag={get_repr(py_object.imag)})"
     return repr(py_object)
