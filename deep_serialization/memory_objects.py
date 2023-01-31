@@ -217,8 +217,8 @@ class PythonSerializer:
         """ Save serialized py_object to memory and return id. """
 
         id_ = PythonId(str(id(py_object)))
-        if id_ in self.memory.objects:
-            return id_
+        # if id_ in self.memory.objects:
+        #     return id_
 
         for provider in self.providers:
             serializer = provider.get_serializer(py_object)
