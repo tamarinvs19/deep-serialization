@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "deep-serialization"
-version = "0.1.5"
+version = "0.1.6"
 description = "Automatic python objects JSON serialization"
 authors = ["Vyacheslav Tamarin <vyacheslav.tamarin@yandex.ru>"]
 readme = "README.md"

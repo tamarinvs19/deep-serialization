@@ -16,7 +16,8 @@ class B:
 if __name__ == '__main__':
     from pprint import pprint
 
-    a = [1, 2, 3, {1: 1}, None, B(1, 2, 3)]
+    b = ["Alex"]
+    a = [1, 2, float('inf'), "abc", {1: 1}, None, B(1, 2, 3), b]
     serializer_ = PythonSerializer()
     pprint(serializer_.write_object_to_memory(a))
     pprint(serializer_.memory.objects)

@@ -140,7 +140,7 @@ class ReduceMemoryObject(MemoryObject):
         for key, value in serializer[self.state].items():
             setattr(deserialized_obj, key, value)
         for item in serializer[self.listitems]:
-            deserialized_obj.append(serializer[item])
+            deserialized_obj.append(item)
         for key, value in serializer[self.dictitems].items():
             deserialized_obj[key] = value
 
