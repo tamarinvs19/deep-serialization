@@ -28,3 +28,17 @@ def serialize_objects(objs: List[Any]) -> Tuple[List[str], str]:
         for obj in objs
     ]
     return ids, json.dumps({'objects': serializer.memory}, cls=MemoryDumpEncoder)
+
+
+def serialize_to_json_objects(objs: List[Any]) -> Tuple[List[str], str]:
+    """
+    Serialize objects with shared memory.
+    Returns list of object ids and memory dump.
+    """
+
+    serializer = PythonSerializer()
+    ids = [
+        serializer.write_object_to_memory(obj)
+        for obj in objs
+    ]
+    return ids, MemoryDumpEncoder().default({'objects': serializer.memory})
